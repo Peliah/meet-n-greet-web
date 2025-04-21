@@ -1,4 +1,4 @@
-# EventBrut - Neo-Brutalist Event Management Application
+# MEET-N-GREET - Neo-Brutalist Event Management Application
 
 A modern, brutalist-style event management web application built with Next.js 15. EventBrut allows administrators to manage events and permits clients to browse and book them.
 
