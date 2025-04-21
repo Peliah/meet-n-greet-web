@@ -20,7 +20,7 @@ export default function ProfilePage() {
   const { isAuthenticated, user } = useAuthStore();
   const { getUserBookings, cancelBooking } = useBookingStore();
   const { getEvent } = useEventStore();
-  
+
   const [bookings, setBookings] = useState<
     Array<Booking & { event: Event | undefined }>
   >([]);
@@ -34,13 +34,13 @@ export default function ProfilePage() {
 
     if (user) {
       const userBookings = getUserBookings(user.id);
-      
+
       // Enrich bookings with event data
       const enrichedBookings = userBookings.map((booking) => ({
         ...booking,
         event: getEvent(booking.eventId),
       }));
-      
+
       setBookings(enrichedBookings);
     }
   }, [isAuthenticated, user, getUserBookings, getEvent, router]);
@@ -48,7 +48,7 @@ export default function ProfilePage() {
   const handleCancelBooking = (bookingId: string) => {
     setIsLoading(true);
     const success = cancelBooking(bookingId);
-    
+
     if (success) {
       // Update the bookings list
       setBookings((prevBookings) =>
@@ -59,7 +59,7 @@ export default function ProfilePage() {
         )
       );
     }
-    
+
     setIsLoading(false);
   };
 
@@ -88,7 +88,7 @@ export default function ProfilePage() {
             </div>
             <h3 className="text-2xl font-bold mb-4">No bookings yet</h3>
             <p className="text-gray-600 mb-6">
-              You haven't booked any events yet. Explore our events and book your spot!
+              You haven&apos;t booked any events yet. Explore our events and book your spot!
             </p>
             <Link href="/events">
               <NeoButton variant="primary">Browse Events</NeoButton>
@@ -105,9 +105,8 @@ export default function ProfilePage() {
               >
                 <NeoCard
                   variant={booking.status === "confirmed" ? "white" : "secondary"}
-                  className={`overflow-hidden ${
-                    booking.status === "cancelled" ? "opacity-75" : ""
-                  }`}
+                  className={`overflow-hidden ${booking.status === "cancelled" ? "opacity-75" : ""
+                    }`}
                 >
                   <div className="flex flex-col md:flex-row gap-6">
                     {booking.event && (

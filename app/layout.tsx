@@ -6,8 +6,8 @@ import { NavigationMenu } from '@/components/navigation/navigation-menu';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'EventBrut - Neo-Brutalist Event Management',
-  description: 'Browse and book events in a neo-brutalist aesthetic',
+  title: 'MEET-N-GREET',
+  description: 'Browse and book events in a neo-etic',
 };
 
 export default function RootLayout({
@@ -27,12 +27,12 @@ export default function RootLayout({
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="mb-4 md:mb-0">
                 <h2 className="font-extrabold text-2xl">
-                  EVENT<span className="text-yellow-400">BRUT</span>
+                  MEET-N<span className="text-yellow-400">-GREET</span>
                 </h2>
-                <p className="mt-2">Brutally simple event management.</p>
+                <p className="mt-2">Bringing People and Moments Together.</p>
               </div>
               <div>
-                <p>&copy; {new Date().getFullYear()} EventBrut. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} MEET-N-GREET. All rights reserved.</p>
               </div>
             </div>
           </div>

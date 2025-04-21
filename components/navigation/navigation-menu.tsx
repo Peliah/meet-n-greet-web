@@ -35,7 +35,7 @@ export function NavigationMenu() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Link href="/" className="font-extrabold text-2xl">
-            EVENT<span className="text-yellow-400">BRUT</span>
+            MEET-N<span className="text-yellow-400">-GREET</span>
           </Link>
         </div>
 
@@ -45,11 +45,10 @@ export function NavigationMenu() {
             <Link
               key={item.href}
               href={item.href}
-              className={`font-bold text-lg relative ${
-                pathname === item.href
-                  ? "text-black after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-yellow-400"
-                  : "text-gray-700 hover:text-black"
-              }`}
+              className={`font-bold text-lg relative ${pathname === item.href
+                ? "text-black after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-yellow-400"
+                : "text-gray-700 hover:text-black"
+                }`}
             >
               {item.label}
             </Link>
@@ -101,11 +100,10 @@ export function NavigationMenu() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`font-bold text-lg ${
-                  pathname === item.href
-                    ? "text-black"
-                    : "text-gray-700 hover:text-black"
-                }`}
+                className={`font-bold text-lg ${pathname === item.href
+                  ? "text-black"
+                  : "text-gray-700 hover:text-black"
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

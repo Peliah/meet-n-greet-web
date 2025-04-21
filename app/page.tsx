@@ -16,7 +16,6 @@ export default function Home() {
 
   return (
     <PageTransition>
-      {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
@@ -27,12 +26,11 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-5xl md:text-7xl font-black mb-6">
-                DISCOVER <span className="text-yellow-400">BRUTALIST</span>{" "}
+                DISCOVER <span className="text-yellow-400">YOUR NEXT</span>{" "}
                 EVENTS
               </h1>
               <p className="text-xl mb-8">
-                Browse and book events with our neo-brutalist event platform.
-                Clean, simple, and effective.
+                Access and reserve your spot at great events with our simple platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/events">
@@ -50,7 +48,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Decorative Elements */}
         <motion.div
           className="absolute bottom-10 left-10 w-20 h-20 bg-yellow-400 border-4 border-black hidden md:block"
           initial={{ opacity: 0, rotate: -10 }}
@@ -65,7 +62,6 @@ export default function Home() {
         ></motion.div>
       </section>
 
-      {/* Featured Events Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10">
           <div>
@@ -92,8 +88,8 @@ export default function Home() {
                 index % 3 === 0
                   ? "primary"
                   : index % 3 === 1
-                  ? "secondary"
-                  : "accent"
+                    ? "secondary"
+                    : "accent"
               }
               interactive
               index={index}
@@ -115,8 +111,8 @@ export default function Home() {
                         index % 3 === 0
                           ? "primary"
                           : index % 3 === 1
-                          ? "secondary"
-                          : "accent"
+                            ? "secondary"
+                            : "accent"
                       }
                     >
                       {event.category}
@@ -160,14 +156,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="bg-black text-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold">
-              WHY CHOOSE <span className="text-yellow-400">EVENT</span>BRUT?
+              WHY CHOOSE <span className="text-yellow-400">MEET-N</span>-GREET?
             </h2>
-            <div className="h-2 w-20 bg-yellow-400 mt-2 mx-auto"></div>
+            <div className="h-2 w-40 bg-yellow-400 mt-2 mx-auto"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -218,14 +213,13 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2">Discover Events</h3>
               <p>
                 Find events near you or filter by category. Our search and filter
-                options help you discover events you'll love.
+                options help you discover events you&apos;ll love.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
       <section className="py-16 relative">
         <div className="container mx-auto px-4">
           <div className="bg-yellow-400 border-4 border-black p-8 md:p-12 relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -251,7 +245,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Decorative shapes */}
             <div className="absolute -right-8 -bottom-8 w-40 h-40 border-4 border-black bg-black opacity-10 rotate-12"></div>
             <div className="absolute -left-4 -top-4 w-24 h-24 border-4 border-black bg-black opacity-10 -rotate-12"></div>
           </div>
