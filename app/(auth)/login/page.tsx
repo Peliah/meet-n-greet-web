@@ -25,7 +25,7 @@ export default function LoginPage() {
 
     try {
       const success = await login(email, password);
-      
+
       if (success) {
         // For demo purposes, redirect based on email
         if (email === "admin@example.com") {
@@ -56,7 +56,7 @@ export default function LoginPage() {
         <div className="max-w-md mx-auto">
           <NeoCard className="mb-8">
             <h1 className="text-3xl font-extrabold mb-6">LOGIN</h1>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <NeoInput
@@ -68,7 +68,7 @@ export default function LoginPage() {
                   placeholder="Enter your email"
                 />
               </div>
-              
+
               <div>
                 <NeoInput
                   label="Password"
@@ -79,19 +79,26 @@ export default function LoginPage() {
                   placeholder="Enter your password"
                 />
               </div>
-              
+
               {error && (
                 <div className="p-3 bg-red-100 border-l-4 border-red-500 text-red-700">
                   {error}
                 </div>
               )}
-              
+
               <NeoButton type="submit" fullWidth disabled={isLoading}>
                 {isLoading ? "Loading..." : "Sign In"}
               </NeoButton>
+
+              <div className="text-center text-sm text-gray-600">
+                Don&apos;t have an account?{" "}
+                <Link href="/register" className="text-blue-600 hover:underline">
+                  Register
+                </Link>
+              </div>
             </form>
-            
-            <div className="mt-6">
+
+            {/* <div className="mt-6">
               <p className="text-center text-gray-600">
                 For demo purposes, you can log in with:
               </p>
@@ -103,7 +110,7 @@ export default function LoginPage() {
                   <strong>Client:</strong> client@example.com (any password)
                 </li>
               </ul>
-            </div>
+            </div> */}
           </NeoCard>
         </div>
       </div>
