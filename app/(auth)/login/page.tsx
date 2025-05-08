@@ -9,6 +9,8 @@ import { PageTransition } from "@/components/navigation/page-transition";
 import { useAuthStore } from "@/hooks/use-auth-store";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { useSignIn } from "@clerk/nextjs";
+import { checkRole } from "@/lib/utils";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -17,6 +19,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { isLoaded, signIn, setActive } = useSignIn();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,18 +27,32 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const success = await login(email, password);
-
-      if (success) {
-        // For demo purposes, redirect based on email
-        if (email === "admin@example.com") {
-          router.push("/admin");
-        } else {
-          router.push("/events");
-        }
-      } else {
-        setError("Invalid credentials. Please try again.");
+      if (!isLoaded) {
+        return
       }
+      try {
+        const result = await signIn.create({
+          identifier: email,
+          password: password,
+        });
+        const success = await login(result);
+
+        if (success) {
+          // For demo purposes, redirect based on role
+          if (await checkRole('admin')) {
+            router.push("/admin");
+          } else {
+            router.push("/events");
+          }
+        } else {
+          setError("Invalid credentials. Please try again.");
+        }
+      } catch (error) {
+        setError("Invalid credentials. Please try again.");
+        return
+      } finally {
+      }
+      setIsLoading(false);
     } catch (err) {
       setError("An error occurred during login.");
     } finally {

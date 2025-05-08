@@ -71,6 +71,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@clerk/types": "^4.57.1",
     "eslint-config-next": "14.2.28"
   }
 }

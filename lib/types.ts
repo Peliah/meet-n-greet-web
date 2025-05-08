@@ -2,10 +2,21 @@
 
 export type UserRole = 'admin' | 'client';
 
+
+declare global {
+  interface CustomJwtSessionClaims {
+    metadata: {
+      role?: UserRole
+    }
+  }
+}
+
 export interface User {
-  id: string;
-  name: string;
+  id?: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  hasImage?: boolean;
   role: UserRole;
 }
 

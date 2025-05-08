@@ -1,29 +1,15 @@
 "use client";
 
 import { create } from "zustand";
-import { User, UserRole } from "@/lib/types";
+import { User } from "@/lib/types";
 import { persist } from "zustand/middleware";
-
-// Sample users for demo purposes
-const DEMO_USERS: User[] = [
-  {
-    id: "admin-1",
-    name: "Admin User",
-    email: "admin@example.com",
-    role: "admin",
-  },
-  {
-    id: "client-1",
-    name: "Client User",
-    email: "client@example.com",
-    role: "client",
-  },
-];
+import { SignInResource } from '@clerk/types';
+import { checkRole } from "@/lib/utils";
 
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<boolean>;
+  login: (result: SignInResource) => Promise<boolean>;
   logout: () => void;
   getCurrentUser: () => User | null;
   isAdmin: () => boolean;
@@ -34,14 +20,9 @@ export const useAuthStore = create<AuthState>()(
     (set, get) => ({
       user: null,
       isAuthenticated: false,
-
-      login: async (email: string, password: string) => {
-        // For demo purposes, any password works
-        // In a real app, this would be a proper authentication
-        const user = DEMO_USERS.find((user) => user.email === email);
-        
-        if (user) {
-          set({ user, isAuthenticated: true });
+      login: async (result) => {
+        if (result.status === 'complete') {
+          set({ isAuthenticated: true });
           return true;
         }
         return false;

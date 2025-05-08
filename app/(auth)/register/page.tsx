@@ -23,24 +23,24 @@ export default function RegisterPage() {
         setError("");
         setIsLoading(true);
 
-        try {
-            const success = await login(email, password);
+        // try {
+        //     const success = await login(email, password);
 
-            if (success) {
-                // For demo purposes, redirect based on email
-                if (email === "admin@example.com") {
-                    router.push("/admin");
-                } else {
-                    router.push("/events");
-                }
-            } else {
-                setError("Invalid credentials. Please try again.");
-            }
-        } catch (err) {
-            setError("An error occurred during login.");
-        } finally {
-            setIsLoading(false);
-        }
+        //     if (success) {
+        //         // For demo purposes, redirect based on email
+        //         if (email === "admin@example.com") {
+        //             router.push("/admin");
+        //         } else {
+        //             router.push("/events");
+        //         }
+        //     } else {
+        //         setError("Invalid credentials. Please try again.");
+        //     }
+        // } catch (err) {
+        //     setError("An error occurred during login.");
+        // } finally {
+        //     setIsLoading(false);
+        // }
     };
 
     return (
